@@ -1,6 +1,6 @@
 ---
 - name: update n1 server
-   host: n1
+   hosts: n1
 
 
   task: 
