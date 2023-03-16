@@ -29,7 +29,7 @@
 
 
 - name: Update group1 servers
-  hosts: g1
+  hosts: nserver
 
   tasks:
   - name: Create Directory
