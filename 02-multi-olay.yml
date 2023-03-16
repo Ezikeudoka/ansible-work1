@@ -5,7 +5,7 @@
     - name: Create Directory
       file:
         path: /home/centos/n1_dir
-        state: directory-
+        state: directory
     - name: Create Directory
       file:
         path: /home/centos/n1_dir_1
