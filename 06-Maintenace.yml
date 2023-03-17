@@ -1,0 +1,10 @@
+---
+- name: Under Maintenance
+  hosts: nserver
+  become: yes
+  tasks:
+    - name: Update Maintenace
+      copy:
+        src: Maintenace.html
+        dest: /var/www/html/index.html
+...
