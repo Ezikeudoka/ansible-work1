@@ -1,0 +1,44 @@
+---
+- name: Install HTTP server
+  hosts: nserver2
+  become: yes
+
+  tasks:
+  - name: Install HTTPD
+    yum:
+      name: httpd
+      state: present
+      update_cache: true
+    when: ansible_distribution == "RedHat" or ansible_distribution == "Centos"
+
+  - name: Start HTTPD
+    service:
+      name: httpd
+      state: started
+    when: ansible_distribution == "RedHat" or ansible_distribution == "Centos"
+
+  - name: Enable HTTPD
+    service:
+      name: httpd
+      enabled: yes
+    when: ansible_distribution == "RedHat" or ansible_distribution == "Centos"
+  - name: Install Apache2
+    apt:
+      name: apache2
+      state: latest
+      update_cache: true
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+  - name: Start Apache2
+    service:
+      name: apache2
+      state: started
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+  - name: Enable Apache2
+    service:
+      name: apache2
+      enabled: yes
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+...
+
