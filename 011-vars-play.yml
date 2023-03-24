@@ -1,0 +1,13 @@
+---
+- name: Variable Demo
+  hosts: nserver2
+  become: yes
+  vars:
+    myusername: becoming a devops eng
+
+  tasks:
+  - name: Update Dynamic Page
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/dynamic.html
+...
